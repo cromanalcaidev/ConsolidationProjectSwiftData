@@ -9,17 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var userList = [User]()
+    @State private var path = [User]()
+    @State private var users = Users()
     
     var body: some View {
-        VStack {
-            List (userList, id: \.id) { item in
-                Text(item.name)
+        NavigationStack {
+            List (users.userList, id: \.id) { user in
+                    HStack {
+                        NavigationLink(user.name) {
+                            UserView(chosenNumber: users.userList.firstIndex(of: user) ?? 0)
+                        }
+                        
+                        Spacer()
+                        
+                        user.isActive ? Image(systemName: "star.fill") : Image(systemName: "star.slash")
+                    }
+            }
+            .navigationTitle("Contacts")
+            .navigationDestination(for: User.self) { user in
+                UserView(chosenNumber: users.userList.firstIndex(of: user) ?? 0)
+                Text("You selected \(user)")
             }
         }
         .padding()
         .task {
             await loadUsers()
-            print(userList)
         }
     }
     
@@ -35,15 +49,15 @@ struct ContentView: View {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             
-            if let decodedResponse = try? decoder.decode(Users.self, from: data) {
-                print(decodedResponse.userList.count)
-                userList = decodedResponse.userList
+            if let decodedResponse = try? decoder.decode([User].self, from: data) {
+                userList = decodedResponse
+                users.userList = decodedResponse
+                
             }
         } catch {
             print("Invalid data")
         }
     }
-    
 }
 
 #Preview {
