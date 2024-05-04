@@ -5,30 +5,31 @@
 //  Created by Carlos Román Alcaide on 2/5/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @State private var userList = [User]()
-    @State private var path = [User]()
+
     @State private var users = Users()
     
     var body: some View {
         NavigationStack {
-            List (users.userList, id: \.id) { user in
+        
+            List (users.userList) { user in
                     HStack {
-                        NavigationLink(user.name) {
-                            UserView(chosenNumber: users.userList.firstIndex(of: user) ?? 0)
+                        NavigationLink(value: user) {
+                            Text("\(user.name)")
+                            
+                            Spacer()
+                            
+                            user.isActive ? Image(systemName: "star.fill") : Image(systemName: "star.slash")
+                            
                         }
-                        
-                        Spacer()
-                        
-                        user.isActive ? Image(systemName: "star.fill") : Image(systemName: "star.slash")
                     }
             }
             .navigationTitle("Contacts")
             .navigationDestination(for: User.self) { user in
-                UserView(chosenNumber: users.userList.firstIndex(of: user) ?? 0)
-                Text("You selected \(user)")
+                UserView(user: user)
             }
         }
         .padding()
@@ -50,7 +51,6 @@ struct ContentView: View {
             decoder.dateDecodingStrategy = .iso8601
             
             if let decodedResponse = try? decoder.decode([User].self, from: data) {
-                userList = decodedResponse
                 users.userList = decodedResponse
                 
             }

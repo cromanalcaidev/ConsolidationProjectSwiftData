@@ -8,39 +8,53 @@
 import SwiftUI
 
 struct UserView: View {
-    var users = Users()
-    var chosenNumber: Int
+//    var users = Users()
+    var user: User
+    @State private var chosenFriend = ""
+    
     
     var body: some View {
-        VStack {
-            ForEach(users.userList, id: \.id) { item in
-            Text(item.address)
+        ScrollView {
+            VStack {
+                Section(header: Text("Name and age")) {
+                    Divider()
+                        .frame(width: 120)
+                    
+                    Text("\(user.name), \(user.age)")
+                        .font(.title)
+                        
+                }
+                
+                Spacer(minLength: 40)
+                
+                Section(header: Text("Bio")) {
+                    Divider()
+                        .frame(width: 30)
+                    
+                    Text(user.about)
+                        .font(.system(size: 22))
+                        
+                }
+                .padding(.horizontal, 10)
+                
+                Spacer(minLength: 40)
+                
+                Section(header: Text("Friends")) {
+                    Divider()
+                        .frame(width: 60)
+                    
+                    ForEach(user.friends) { friend in
+                        Text(friend.name)
+                            .font(.system(size: 20))
+                            .padding(.vertical, 2)
+                            
+                    }
+                }
             }
         }
     }
-    
-//    func loadUsers() async {
-//        let endpoint = "https://www.hackingwithswift.com/samples/friendface.json"
-//        guard let url = URL(string: endpoint) else {
-//            print("Invalid URL")
-//            return
-//        }
-//        
-//        do {
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//            let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .iso8601
-//            
-//            if let decodedResponse = try? decoder.decode([User].self, from: data) {
-//                userList = decodedResponse
-//                users.userList = decodedResponse
-//            }
-//        } catch {
-//            print("Invalid data")
-//        }
-//    }
 }
 
-#Preview {
-    UserView(chosenNumber: 0)
-}
+//#Preview {
+//    UserView()
+//}
