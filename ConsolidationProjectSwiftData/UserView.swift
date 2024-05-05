@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct UserView: View {
-//    var users = Users()
     var user: User
-    @State private var chosenFriend = ""
     
     
     var body: some View {

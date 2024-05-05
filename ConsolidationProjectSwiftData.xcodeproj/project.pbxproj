@@ -13,6 +13,7 @@
 		7C8E1CF32BE3E98400AEC092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E1CF22BE3E98400AEC092 /* Assets.xcassets */; };
 		7C8E1CF62BE3E98400AEC092 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E1CF52BE3E98400AEC092 /* Preview Assets.xcassets */; };
 		7C8E1D192BE40D1800AEC092 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E1D182BE40D1800AEC092 /* Friend.swift */; };
+		7CB7012B2BE7F75C008710BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7012A2BE7F75C008710BF /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		7C8E1CF22BE3E98400AEC092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C8E1CF52BE3E98400AEC092 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C8E1D182BE40D1800AEC092 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		7CB7012A2BE7F75C008710BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7C8E1CF02BE3E98300AEC092 /* ContentView.swift */,
 				7C8724D32BE53E3B00452595 /* UserView.swift */,
 				7C8E1D182BE40D1800AEC092 /* Friend.swift */,
+				7CB7012A2BE7F75C008710BF /* User.swift */,
 				7C8E1CF22BE3E98400AEC092 /* Assets.xcassets */,
 				7C8E1CF42BE3E98400AEC092 /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				7C8E1D192BE40D1800AEC092 /* Friend.swift in Sources */,
 				7C8E1CF12BE3E98300AEC092 /* ContentView.swift in Sources */,
 				7C8E1CEF2BE3E98300AEC092 /* ConsolidationProjectSwiftDataApp.swift in Sources */,
+				7CB7012B2BE7F75C008710BF /* User.swift in Sources */,
 				7C8724D42BE53E3B00452595 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

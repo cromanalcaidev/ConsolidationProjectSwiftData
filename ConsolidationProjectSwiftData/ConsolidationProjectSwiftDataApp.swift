@@ -5,6 +5,7 @@
 //  Created by Carlos Román Alcaide on 2/5/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct ConsolidationProjectSwiftDataApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: User.self)
     }
 }
